@@ -1,0 +1,36 @@
+log_dir: <%= node[:mon_notification][:log_dir] %>
+
+kafka:
+    url: 192.168.10.10:9092
+    group: <%= node[:mon_notification][:group] %>
+    alarm_topic: alarm-state-transitions
+    notification_topic: alarm-notifications
+
+mysql:
+    host: 192.168.10.6
+    user: notification
+    passwd: password
+    db: mon
+
+email:
+    server: smtp3.hp.com
+    port: 25
+    user:
+    password:
+    timeout: 60
+    from_addr: notifications@localhost.localdomain
+
+processors:
+    alarm:
+        number: 2
+    notification:
+        number: 2
+
+queues:
+    alarms_size: 256
+    finished_size: 256
+    notifications_size: 256
+    sent_notifications_size: 256
+
+zookeeper:
+    url: 192.168.10.10:2181

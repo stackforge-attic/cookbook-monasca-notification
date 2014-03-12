@@ -1,0 +1,11 @@
+# Startup script for the mon_notification
+
+description "Mon Notification daemon"
+start on runlevel [2345]
+
+console log
+respawn
+
+setgid <%= node[:mon_notification][:group] %>
+setuid <%= node[:mon_notification][:user] %>
+exec /usr/bin/mon-notification
