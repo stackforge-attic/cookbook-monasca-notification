@@ -40,8 +40,11 @@ logging: # Used in logging.dictConfig
         default:
             format: "%(asctime)s %(levelname)s %(name)s %(message)s"
     handlers:
+        console:
+            class: logging.StreamHandler
+            formatter: default
         file:
-            class : logging.handlers.RotatingFileHandler
+            class: logging.handlers.RotatingFileHandler
             filename: <%= node[:mon_notification][:log_dir] %>/notification.log
             formatter: default
             maxBytes: 10485760  # Rotate at file size ~10MB
