@@ -21,6 +21,7 @@ email:
 processors:
     alarm:
         number: 2
+        ttl: 1440  # In minutes, Alarms older than this are not processed
     notification:
         number: 2
 
@@ -28,10 +29,11 @@ queues:
     alarms_size: 256
     finished_size: 256
     notifications_size: 256
-    sent_notifications_size: 256
+    sent_notifications_size: 50  # limiting this size reduces potential # of re-sent notifications after a failure
 
 zookeeper:
     url: 192.168.10.10:2181
+    max_offset_lag: 600  # In seconds
 
 logging: # Used in logging.dictConfig
     version: 1
