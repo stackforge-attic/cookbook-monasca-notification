@@ -43,7 +43,7 @@ template "#{node[:mon_notification][:conf_dir]}/notification.yaml" do
   action :create
   source 'notification.yaml.erb'
   owner 'root'
-  group 'root'
+  group node[:mon_notification][:group]
   mode 0640
   notifies :restart, "service[mon-notification]"
 end
