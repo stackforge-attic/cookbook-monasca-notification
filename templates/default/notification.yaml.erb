@@ -11,7 +11,7 @@ mysql:
     db: mon
 
 email:
-    server: smtp3.hp.com
+    server: <%= node[:mon_notification][:smtp_server] %>
     port: 25
     user:
     password:
