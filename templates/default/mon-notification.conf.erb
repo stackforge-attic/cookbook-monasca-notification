@@ -10,4 +10,4 @@ kill timeout 240
 
 setgid <%= node[:mon_notification][:group] %>
 setuid <%= node[:mon_notification][:user] %>
-exec /usr/bin/mon-notification
+exec /usr/local/bin/mon-notification

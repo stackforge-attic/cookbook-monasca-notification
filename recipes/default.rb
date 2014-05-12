@@ -1,4 +1,9 @@
-package 'mon-notification' do
+# preferable for the OS to install then easy_install to try and compile the MySQL-python package
+package 'python-mysqldb' do
+  action :install
+end
+
+easy_install_package 'mon-notification' do
   action :upgrade
 end
 
