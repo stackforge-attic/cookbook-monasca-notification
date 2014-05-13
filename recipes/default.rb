@@ -43,12 +43,16 @@ directory node[:mon_notification][:log_dir] do
   mode 0775
 end
 
-# todo - setup a data bag for the config details and an encrypted one for credentials
+# todo - setup an encrypted data bag for credentials
+hosts = data_bag_item(node[:mon_notification][:data_bag], 'hosts')
 template "#{node[:mon_notification][:conf_dir]}/notification.yaml" do
   action :create
   source 'notification.yaml.erb'
   owner 'root'
   group node[:mon_notification][:group]
   mode 0640
+  variables(
+    :hosts => hosts
+  )
   notifies :restart, "service[mon-notification]"
 end

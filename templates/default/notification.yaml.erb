@@ -1,17 +1,17 @@
 kafka:
-    url: 192.168.10.10:9092
+    url: <%= @hosts['kafka'] %>:9092
     group: <%= node[:mon_notification][:group] %>
     alarm_topic: alarm-state-transitions
     notification_topic: alarm-notifications
 
 mysql:
-    host: 192.168.10.6
+    host: <%= @hosts['mysql'] %>
     user: notification
     passwd: password
     db: mon
 
 email:
-    server: <%= node[:mon_notification][:smtp_server] %>
+    server: <%= @hosts['smtp'] %>
     port: 25
     user:
     password:
@@ -32,7 +32,7 @@ queues:
     sent_notifications_size: 50  # limiting this size reduces potential # of re-sent notifications after a failure
 
 zookeeper:
-    url: 192.168.10.10:2181
+    url: <%= @hosts['zookeeper'] %>:2181
     max_offset_lag: 600  # In seconds, undefined for none
 
 logging: # Used in logging.dictConfig
