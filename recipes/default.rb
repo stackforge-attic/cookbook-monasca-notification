@@ -1,9 +1,13 @@
-# preferable for the OS to install then easy_install to try and compile the MySQL-python package
-package 'python-mysqldb' do
-  action :install
+include_recipe "python"
+
+# preferable for the OS to install this then to have pip compile
+%[python-mysqldb libmysqlclient-dev].each do |pkg_name|
+  package pkg_name do
+    action :install
+  end
 end
 
-easy_install_package 'mon-notification' do
+python_pip 'mon-notification' do
   action :upgrade
 end
 
