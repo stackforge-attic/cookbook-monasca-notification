@@ -1,7 +1,7 @@
 include_recipe "python"
 
 # preferable for the OS to install this then to have pip compile
-%[python-mysqldb libmysqlclient-dev].each do |pkg_name|
+%w[ python-mysqldb libmysqlclient-dev ].each do |pkg_name|
   package pkg_name do
     action :install
   end
