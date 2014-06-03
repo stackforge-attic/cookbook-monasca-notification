@@ -8,7 +8,7 @@ include_recipe "python"
 end
 
 python_pip 'mon-notification' do
-  action :upgrade
+  action :instal
 end
 
 user node[:mon_notification][:group] do
