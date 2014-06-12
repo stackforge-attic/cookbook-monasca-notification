@@ -11,7 +11,7 @@ python_pip 'mon-notification' do
   action :install
 end
 
-user node[:mon_notification][:group] do
+group node[:mon_notification][:group] do
   action :create
 end
 user node[:mon_notification][:user] do
