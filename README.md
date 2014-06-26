@@ -50,8 +50,8 @@ Attributes
 
 Data Bags
 ---------
-A simple data bag item named hosts in node[:mon_notification][:data_bag] is required for running. It simply has 4 dictionary items
-for the host names to connect to. The names and services are, kafka, mysql, smtp and zookeeper
+A data bag item named hosts in node[:mon_notification][:data_bag] is required for running. It simply has 4 dictionary items
+for the host names and auth infomation to connect to the services: kafka, mysql, smtp and zookeeper
 
 Usage
 -----
