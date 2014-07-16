@@ -1,0 +1,13 @@
+# Startup script for the monasca_notification
+
+description "Monasca Notification daemon"
+start on runlevel [2345]
+
+console log
+respawn
+
+kill timeout 240
+
+setgid <%= node[:monasca_notification][:group] %>
+setuid <%= node[:monasca_notification][:user] %>
+exec /usr/local/bin/monasca-notification

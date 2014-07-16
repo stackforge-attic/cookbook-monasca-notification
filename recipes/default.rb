@@ -9,56 +9,56 @@ include_recipe 'python'
   end
 end
 
-python_pip 'mon-notification' do
+python_pip 'monasca-notification' do
   action :install
 end
 
-group node[:mon_notification][:group] do
+group node[:monasca_notification][:group] do
   action :create
 end
-user node[:mon_notification][:user] do
+user node[:monasca_notification][:user] do
   action :create
   system true
-  gid node[:mon_notification][:group]
+  gid node[:monasca_notification][:group]
 end
 
-template '/etc/init/mon-notification.conf' do
+template '/etc/init/monasca-notification.conf' do
   action :create
-  source 'mon-notification.conf.erb'
+  source 'monasca-notification.conf.erb'
   owner 'root'
   group 'root'
   mode 0644
 end
 
-service 'mon-notification' do
+service 'monasca-notification' do
   action :enable
   provider Chef::Provider::Service::Upstart
 end
 
-directory node[:mon_notification][:conf_dir] do
+directory node[:monasca_notification][:conf_dir] do
   action :create
   owner 'root'
   group 'root'
   mode 0755
 end
 
-directory node[:mon_notification][:log_dir] do
+directory node[:monasca_notification][:log_dir] do
   action :create
-  owner node[:mon_notification][:user]
-  group node[:mon_notification][:group]
+  owner node[:monasca_notification][:user]
+  group node[:monasca_notification][:group]
   mode 0775
 end
 
 # TODO: setup an encrypted data bag for credentials
-hosts = data_bag_item(node[:mon_notification][:data_bag], 'hosts')
-template "#{node[:mon_notification][:conf_dir]}/notification.yaml" do
+hosts = data_bag_item(node[:monasca_notification][:data_bag], 'hosts')
+template "#{node[:monasca_notification][:conf_dir]}/notification.yaml" do
   action :create
   source 'notification.yaml.erb'
   owner 'root'
-  group node[:mon_notification][:group]
+  group node[:monasca_notification][:group]
   mode 0640
   variables(
     hosts: hosts
   )
-  notifies :restart, 'service[mon-notification]'
+  notifies :restart, 'service[monasca-notification]'
 end
