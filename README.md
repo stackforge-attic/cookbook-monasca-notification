@@ -1,14 +1,14 @@
-mon_notification Cookbook
+monasca_notification Cookbook
 =========================
-Sets up the mon-notification daemon
+Sets up the monasca-notification daemon
 
 Requirements
 ------------
-The cookbook only requires access to the mon-notification package.
+The cookbook only requires access to the monasca-notification package.
 
 Attributes
 ----------
-#### mon_notification::default
+#### monasca_notification::default
 <table>
   <tr>
     <th>Key</th>
@@ -17,42 +17,42 @@ Attributes
     <th>Default</th>
   </tr>
   <tr>
-    <td><tt>[:mon_notification][:user]</tt></td>
+    <td><tt>[:monasca_notification][:user]</tt></td>
     <td>String</td>
     <td>System user for the daemon</td>
-    <td><tt>mon-notification</tt></td>
+    <td><tt>monasca-notification</tt></td>
   </tr>
   <tr>
-    <td><tt>[:mon_notification][:group]</tt></td>
+    <td><tt>[:monasca_notification][:group]</tt></td>
     <td>String</td>
     <td>System group for the daemon</td>
-    <td><tt>mon-notification</tt></td>
+    <td><tt>monasca-notification</tt></td>
   </tr>
   <tr>
-    <td><tt>[:mon_notification][:conf_dir]</tt></td>
+    <td><tt>[:monasca_notification][:conf_dir]</tt></td>
     <td>String</td>
     <td>Configuration Directory</td>
-    <td><tt>/etc/mon</tt></td>
+    <td><tt>/etc/monasca</tt></td>
   </tr>
   <tr>
-    <td><tt>[:mon_notification][:data_bag]</tt></td>
+    <td><tt>[:monasca_notification][:data_bag]</tt></td>
     <td>String</td>
     <td>Configuration data bag</td>
-    <td><tt>mon_notification</tt></td>
+    <td><tt>monasca_notification</tt></td>
   </tr>
   <tr>
-    <td><tt>[:mon_notification][:log_dir]</tt></td>
+    <td><tt>[:monasca_notification][:log_dir]</tt></td>
     <td>String</td>
     <td>Daemon log directory</td>
-    <td><tt>/var/log/mon-notification</tt></td>
+    <td><tt>/var/log/monasca-notification</tt></td>
   </tr>
 </table>
 
 Data Bags
 ---------
-A data bag item named hosts in node[:mon_notification][:data_bag] is required for running. It simply has 4 dictionary items
+A data bag item named hosts in node[:monasca_notification][:data_bag] is required for running. It simply has 4 dictionary items
 for the host names and auth infomation to connect to the services: kafka, mysql, smtp and zookeeper
 
 Usage
 -----
-Simply include the mon_notification default recipe in a role.
+Simply include the monasca_notification default recipe in a role.

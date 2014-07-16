@@ -1,4 +1,4 @@
 # Have ossec watch the log
-node.default[:ossec][:watched][:mon_notification] = {
-  '/var/log/mon-notification/notification.log' => :syslog
+node.default[:ossec][:watched][:monasca_notification] = {
+  '/var/log/monasca/notification.log' => :syslog
 }
