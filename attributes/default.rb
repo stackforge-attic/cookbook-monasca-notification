@@ -1,3 +1,5 @@
+# encoding: UTF-8
+#
 default[:mon_notification][:user] = 'mon-notification'
 default[:mon_notification][:group] = 'mon-notification'
 default[:mon_notification][:conf_dir] = '/etc/mon'

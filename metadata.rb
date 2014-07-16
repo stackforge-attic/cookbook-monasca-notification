@@ -1,3 +1,5 @@
+# encoding: UTF-8
+#
 name             'mon_notification'
 maintainer       'HP Monitoring'
 maintainer_email 'hpcs-mon@hp.com'

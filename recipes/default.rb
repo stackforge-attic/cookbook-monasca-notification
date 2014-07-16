@@ -1,4 +1,6 @@
-include_recipe "python"
+# encoding: UTF-8
+#
+include_recipe 'python'
 
 # preferable for the OS to install this then to have pip compile
 %w[ python-mysqldb libmysqlclient-dev ].each do |pkg_name|
@@ -47,7 +49,7 @@ directory node[:mon_notification][:log_dir] do
   mode 0775
 end
 
-# todo - setup an encrypted data bag for credentials
+# TODO: setup an encrypted data bag for credentials
 hosts = data_bag_item(node[:mon_notification][:data_bag], 'hosts')
 template "#{node[:mon_notification][:conf_dir]}/notification.yaml" do
   action :create
@@ -56,7 +58,7 @@ template "#{node[:mon_notification][:conf_dir]}/notification.yaml" do
   group node[:mon_notification][:group]
   mode 0640
   variables(
-    :hosts => hosts
+    hosts: hosts
   )
-  notifies :restart, "service[mon-notification]"
+  notifies :restart, 'service[mon-notification]'
 end
