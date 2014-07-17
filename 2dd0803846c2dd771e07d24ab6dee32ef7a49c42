@@ -1,0 +1,9 @@
+Verified+2: Jenkins
+Verified+1: Wherenow.org Jenkins CI <jenkins@wherenow.org>
+Code-Review+2: Craig Bryant <craig.bryant@hp.com>
+Workflow+1: Craig Bryant <craig.bryant@hp.com>
+Submitted-by: Jenkins
+Submitted-at: Thu, 17 Jul 2014 16:39:21 +0000
+Reviewed-on: https://review.openstack.org/107487
+Project: stackforge/cookbook-monasca-notification
+Branch: refs/heads/master
