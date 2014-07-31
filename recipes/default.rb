@@ -10,7 +10,7 @@ include_recipe 'python'
 end
 
 python_pip 'monasca-notification' do
-  action :install
+  action :upgrade
 end
 
 group node[:monasca_notification][:group] do
