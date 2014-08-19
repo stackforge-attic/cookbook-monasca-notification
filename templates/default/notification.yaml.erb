@@ -3,6 +3,7 @@ kafka:
     group: <%= node[:monasca_notification][:group] %>
     alarm_topic: <%= @hosts['kafka']['alarm_topic'] %>
     notification_topic: <%= @hosts['kafka']['notification_topic'] %>
+    max_offset_lag: 600  # In seconds, undefined for none
 
 mysql:
     host: <%= @hosts['mysql']['url'] %>
@@ -33,7 +34,6 @@ queues:
 
 zookeeper:
     url: <%= @hosts['zookeeper']['url'] %>
-    max_offset_lag: 600  # In seconds, undefined for none
 
 logging: # Used in logging.dictConfig
     version: 1
