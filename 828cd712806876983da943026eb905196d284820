@@ -1,0 +1,8 @@
+Verified+2: Jenkins
+Code-Review+2: Tim Kuhlman <tim.kuhlman@hp.com>
+Workflow+1: Tim Kuhlman <tim.kuhlman@hp.com>
+Submitted-by: Jenkins
+Submitted-at: Mon, 23 Feb 2015 15:23:22 +0000
+Reviewed-on: https://review.openstack.org/158128
+Project: stackforge/cookbook-monasca-notification
+Branch: refs/heads/master
